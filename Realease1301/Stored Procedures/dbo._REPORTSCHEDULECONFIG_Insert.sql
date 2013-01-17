@@ -1,0 +1,22 @@
+SET QUOTED_IDENTIFIER ON
+GO
+SET ANSI_NULLS ON
+GO
+
+
+-- Inserts a new record into the 'REPORTSCHEDULECONFIG' table.
+CREATE PROCEDURE [dbo].[_REPORTSCHEDULECONFIG_Insert]
+	@NAME nvarchar(50),
+	@VALUE nvarchar(1000)
+AS
+	INSERT INTO [dbo].[REPORTSCHEDULECONFIG]
+	(
+		[NAME],
+		[VALUE]
+	)
+	VALUES
+	(
+		@NAME,
+		@VALUE
+	)
+GO

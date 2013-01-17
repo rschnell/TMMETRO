@@ -1,0 +1,47 @@
+SET QUOTED_IDENTIFIER ON
+GO
+SET ANSI_NULLS ON
+GO
+
+
+-- Inserts a new record into the 'TMLOCALIZATIONSCOPY' table.
+CREATE PROCEDURE [dbo].[_TMLOCALIZATIONSCOPY_Insert]
+	@CODE nchar(5),
+	@BASEKEY nvarchar(max),
+	@LOCAL nvarchar(max),
+	@UPDATED datetime,
+	@CREATED datetime,
+	@UPDATEDBY int,
+	@RESOURCESET nvarchar(50),
+	@ACTIVE bit,
+	@UPDATEDBYUSER nvarchar(100),
+	@LOCKED bit
+AS
+	INSERT INTO [dbo].[TMLOCALIZATIONSCOPY]
+	(
+		[CODE],
+		[BASEKEY],
+		[LOCAL],
+		[UPDATED],
+		[CREATED],
+		[UPDATEDBY],
+		[RESOURCESET],
+		[ACTIVE],
+		[UPDATEDBYUSER],
+		[LOCKED]
+	)
+	VALUES
+	(
+		@CODE,
+		@BASEKEY,
+		@LOCAL,
+		@UPDATED,
+		@CREATED,
+		@UPDATEDBY,
+		@RESOURCESET,
+		@ACTIVE,
+		@UPDATEDBYUSER,
+		@LOCKED
+	)
+	SELECT @@IDENTITY
+GO

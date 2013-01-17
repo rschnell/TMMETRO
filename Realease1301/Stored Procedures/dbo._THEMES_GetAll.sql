@@ -1,0 +1,11 @@
+SET QUOTED_IDENTIFIER ON
+GO
+SET ANSI_NULLS ON
+GO
+
+
+-- Gets all records from the 'THEMES' table.
+CREATE PROCEDURE [dbo].[_THEMES_GetAll]
+AS
+	SELECT * FROM [dbo].[THEMES]
+GO

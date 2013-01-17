@@ -1,0 +1,53 @@
+SET QUOTED_IDENTIFIER ON
+GO
+SET ANSI_NULLS ON
+GO
+
+
+-- Inserts a new record into the 'ATTACHMENTS' table.
+CREATE PROCEDURE [dbo].[_ATTACHMENTS_Insert]
+	@DIARYID int,
+	@TITLE nvarchar(50),
+	@FILENAME nvarchar(255),
+	@FILEGUID varchar(50),
+	@FILEPATH nvarchar(255),
+	@FILEVERSION int,
+	@CONTENTTYPE varchar(255),
+	@_CMSUSERSRaisedBy int,
+	@FILESIZE int,
+	@ACTIVE bit,
+	@TYPE int,
+	@LISTID int
+AS
+	INSERT INTO [dbo].[ATTACHMENTS]
+	(
+		[DIARYID],
+		[TITLE],
+		[FILENAME],
+		[FILEGUID],
+		[FILEPATH],
+		[FILEVERSION],
+		[CONTENTTYPE],
+		[_CMSUSERSRaisedBy],
+		[FILESIZE],
+		[ACTIVE],
+		[TYPE],
+		[LISTID]
+	)
+	VALUES
+	(
+		@DIARYID,
+		@TITLE,
+		@FILENAME,
+		@FILEGUID,
+		@FILEPATH,
+		@FILEVERSION,
+		@CONTENTTYPE,
+		@_CMSUSERSRaisedBy,
+		@FILESIZE,
+		@ACTIVE,
+		@TYPE,
+		@LISTID
+	)
+	SELECT @@IDENTITY
+GO

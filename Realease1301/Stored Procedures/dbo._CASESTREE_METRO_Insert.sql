@@ -1,0 +1,48 @@
+SET QUOTED_IDENTIFIER ON
+GO
+SET ANSI_NULLS ON
+GO
+
+-- Inserts a new record into the 'CASESTREE_METRO' table.
+CREATE PROCEDURE [dbo].[_CASESTREE_METRO_Insert]
+	@TREEID int,
+	@CATEGORYID int,
+	@NODENAME nvarchar(50),
+	@NODEVALUE int,
+	@NODETEXT nvarchar(max),
+	@DEFAULT bit,
+	@TREELEVEL int,
+	@TREELN int,
+	@TREERN int,
+	@ACTIVE bit,
+	@NODETAG nvarchar(50)
+AS
+	INSERT INTO [dbo].[CASESTREE_METRO]
+	(
+		[TREEID],
+		[CATEGORYID],
+		[NODENAME],
+		[NODEVALUE],
+		[NODETEXT],
+		[DEFAULT],
+		[TREELEVEL],
+		[TREELN],
+		[TREERN],
+		[ACTIVE],
+		[NODETAG]
+	)
+	VALUES
+	(
+		@TREEID,
+		@CATEGORYID,
+		@NODENAME,
+		@NODEVALUE,
+		@NODETEXT,
+		@DEFAULT,
+		@TREELEVEL,
+		@TREELN,
+		@TREERN,
+		@ACTIVE,
+		@NODETAG
+	)
+GO

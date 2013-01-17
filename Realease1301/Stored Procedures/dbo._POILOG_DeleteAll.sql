@@ -1,0 +1,11 @@
+SET QUOTED_IDENTIFIER ON
+GO
+SET ANSI_NULLS ON
+GO
+
+
+-- Deletes all records from the 'POILOG' table.
+CREATE PROCEDURE [dbo].[_POILOG_DeleteAll]
+AS
+	DELETE FROM [dbo].[POILOG]
+GO

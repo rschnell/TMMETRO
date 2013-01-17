@@ -1,0 +1,52 @@
+SET QUOTED_IDENTIFIER ON
+GO
+SET ANSI_NULLS ON
+GO
+
+
+-- Updates a record in the 'RULES' table.
+CREATE PROCEDURE [dbo].[_RULES_Update]
+	-- The rest of writeable parameters
+	@TITLE nvarchar(50),
+	@DESCRIPTION nvarchar(80),
+	@APPLIESTO nchar(20),
+	@APPLIESTOTYPE int,
+	@VALUE nchar(50),
+	@FILTER nvarchar(max),
+	@RULETYPE int,
+	@LOGICTYPE int,
+	@CREATEDBY int,
+	@CREATED datetime,
+	@UPDATEDBY int,
+	@UPDATED datetime,
+	@SUBSCRIPTIONID int,
+	@ACTIVE bit,
+	@CASEID int,
+	@RULENO int,
+	@STEPNO int,
+	@TRIGGERFIELD nvarchar(50),
+	-- Primary key parameters
+	@RULESID int
+AS
+	UPDATE [dbo].[RULES] SET
+		[TITLE] = @TITLE,
+		[DESCRIPTION] = @DESCRIPTION,
+		[APPLIESTO] = @APPLIESTO,
+		[APPLIESTOTYPE] = @APPLIESTOTYPE,
+		[VALUE] = @VALUE,
+		[FILTER] = @FILTER,
+		[RULETYPE] = @RULETYPE,
+		[LOGICTYPE] = @LOGICTYPE,
+		[CREATEDBY] = @CREATEDBY,
+		[CREATED] = @CREATED,
+		[UPDATEDBY] = @UPDATEDBY,
+		[UPDATED] = @UPDATED,
+		[SUBSCRIPTIONID] = @SUBSCRIPTIONID,
+		[ACTIVE] = @ACTIVE,
+		[CASEID] = @CASEID,
+		[RULENO] = @RULENO,
+		[STEPNO] = @STEPNO,
+		[TRIGGERFIELD] = @TRIGGERFIELD
+	WHERE
+		[RULESID] = @RULESID
+GO

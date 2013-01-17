@@ -1,0 +1,13 @@
+SET QUOTED_IDENTIFIER ON
+GO
+SET ANSI_NULLS ON
+GO
+
+
+-- Gets a record from the 'CASESTREEBASE' table using the primary key value.
+CREATE PROCEDURE [dbo].[_CASESTREEBASE_GetByPrimaryKey]
+	@TREEID int
+AS
+	SELECT * FROM [dbo].[CASESTREEBASE] WHERE
+		[TREEID] = @TREEID
+GO

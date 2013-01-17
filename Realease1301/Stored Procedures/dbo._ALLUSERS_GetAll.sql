@@ -1,0 +1,11 @@
+SET QUOTED_IDENTIFIER ON
+GO
+SET ANSI_NULLS ON
+GO
+
+
+-- Gets all records from the 'ALLUSERS' table.
+CREATE PROCEDURE [dbo].[_ALLUSERS_GetAll]
+AS
+	SELECT * FROM [dbo].[ALLUSERS]
+GO

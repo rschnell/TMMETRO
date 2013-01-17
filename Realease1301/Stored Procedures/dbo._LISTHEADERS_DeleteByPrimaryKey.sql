@@ -1,0 +1,13 @@
+SET QUOTED_IDENTIFIER ON
+GO
+SET ANSI_NULLS ON
+GO
+
+
+-- Deletes a record from the 'LISTHEADERS' table using the primary key value.
+CREATE PROCEDURE [dbo].[_LISTHEADERS_DeleteByPrimaryKey]
+	@LISTHEADERID int
+AS
+	DELETE FROM [dbo].[LISTHEADERS] WHERE
+		[LISTHEADERID] = @LISTHEADERID
+GO

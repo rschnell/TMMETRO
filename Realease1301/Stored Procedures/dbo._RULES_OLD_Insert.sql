@@ -1,0 +1,71 @@
+SET QUOTED_IDENTIFIER ON
+GO
+SET ANSI_NULLS ON
+GO
+
+
+-- Inserts a new record into the 'RULES_OLD' table.
+CREATE PROCEDURE [dbo].[_RULES_OLD_Insert]
+	@TITLE nvarchar(50),
+	@DESCRIPTION nvarchar(80),
+	@APPLIESTO nchar(20),
+	@APPLIESTOTYPE int,
+	@VALUE nchar(50),
+	@FILTER nvarchar(max),
+	@RULETYPE int,
+	@LOGICTYPE int,
+	@CREATEDBY int,
+	@CREATED datetime,
+	@UPDATEDBY int,
+	@UPDATED datetime,
+	@SUBSCRIPTIONID int,
+	@ACTIVE bit,
+	@CASEID int,
+	@RULENO int,
+	@STEPNO int,
+	@TRIGGERFIELD nvarchar(50)
+AS
+	INSERT INTO [dbo].[RULES_OLD]
+	(
+		[TITLE],
+		[DESCRIPTION],
+		[APPLIESTO],
+		[APPLIESTOTYPE],
+		[VALUE],
+		[FILTER],
+		[RULETYPE],
+		[LOGICTYPE],
+		[CREATEDBY],
+		[CREATED],
+		[UPDATEDBY],
+		[UPDATED],
+		[SUBSCRIPTIONID],
+		[ACTIVE],
+		[CASEID],
+		[RULENO],
+		[STEPNO],
+		[TRIGGERFIELD]
+	)
+	VALUES
+	(
+		@TITLE,
+		@DESCRIPTION,
+		@APPLIESTO,
+		@APPLIESTOTYPE,
+		@VALUE,
+		@FILTER,
+		@RULETYPE,
+		@LOGICTYPE,
+		@CREATEDBY,
+		@CREATED,
+		@UPDATEDBY,
+		@UPDATED,
+		@SUBSCRIPTIONID,
+		@ACTIVE,
+		@CASEID,
+		@RULENO,
+		@STEPNO,
+		@TRIGGERFIELD
+	)
+	SELECT @@IDENTITY
+GO

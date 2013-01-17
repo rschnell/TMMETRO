@@ -1,0 +1,11 @@
+SET QUOTED_IDENTIFIER ON
+GO
+SET ANSI_NULLS ON
+GO
+
+
+-- Deletes all records from the 'LISTHEADERS' table.
+CREATE PROCEDURE [dbo].[_LISTHEADERS_DeleteAll]
+AS
+	DELETE FROM [dbo].[LISTHEADERS]
+GO

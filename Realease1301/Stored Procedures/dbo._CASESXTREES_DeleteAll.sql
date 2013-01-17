@@ -1,0 +1,11 @@
+SET QUOTED_IDENTIFIER ON
+GO
+SET ANSI_NULLS ON
+GO
+
+
+-- Deletes all records from the 'CASESXTREES' table.
+CREATE PROCEDURE [dbo].[_CASESXTREES_DeleteAll]
+AS
+	DELETE FROM [dbo].[CASESXTREES]
+GO

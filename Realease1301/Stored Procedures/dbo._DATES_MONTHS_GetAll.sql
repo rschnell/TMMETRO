@@ -1,0 +1,11 @@
+SET QUOTED_IDENTIFIER ON
+GO
+SET ANSI_NULLS ON
+GO
+
+
+-- Gets all records from the 'DATES_MONTHS' table.
+CREATE PROCEDURE [dbo].[_DATES_MONTHS_GetAll]
+AS
+	SELECT * FROM [dbo].[DATES_MONTHS]
+GO

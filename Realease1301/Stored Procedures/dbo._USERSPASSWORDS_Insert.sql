@@ -1,0 +1,29 @@
+SET QUOTED_IDENTIFIER ON
+GO
+SET ANSI_NULLS ON
+GO
+
+
+-- Inserts a new record into the 'USERSPASSWORDS' table.
+CREATE PROCEDURE [dbo].[_USERSPASSWORDS_Insert]
+	@USERID int,
+	@PASSWORD nvarchar(50),
+	@SETDATE datetime,
+	@ATTEMPTS int
+AS
+	INSERT INTO [dbo].[USERSPASSWORDS]
+	(
+		[USERID],
+		[PASSWORD],
+		[SETDATE],
+		[ATTEMPTS]
+	)
+	VALUES
+	(
+		@USERID,
+		@PASSWORD,
+		@SETDATE,
+		@ATTEMPTS
+	)
+	SELECT @@IDENTITY
+GO

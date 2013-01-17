@@ -1,0 +1,43 @@
+SET QUOTED_IDENTIFIER ON
+GO
+SET ANSI_NULLS ON
+GO
+
+-- Inserts a new record into the 'BASICTREE' table.
+CREATE PROCEDURE [dbo].[_BASICTREE_Insert]
+	@CATEGORYID int,
+	@NODENAME nvarchar(50),
+	@NODEVALUE int,
+	@NODETEXT nvarchar(max),
+	@DEFAULT bit,
+	@TREELEVEL int,
+	@TREELN int,
+	@TREERN int,
+	@ACTIVE bit
+AS
+	INSERT INTO [dbo].[BASICTREE]
+	(
+		[CATEGORYID],
+		[NODENAME],
+		[NODEVALUE],
+		[NODETEXT],
+		[DEFAULT],
+		[TREELEVEL],
+		[TREELN],
+		[TREERN],
+		[ACTIVE]
+	)
+	VALUES
+	(
+		@CATEGORYID,
+		@NODENAME,
+		@NODEVALUE,
+		@NODETEXT,
+		@DEFAULT,
+		@TREELEVEL,
+		@TREELN,
+		@TREERN,
+		@ACTIVE
+	)
+	SELECT @@IDENTITY
+GO

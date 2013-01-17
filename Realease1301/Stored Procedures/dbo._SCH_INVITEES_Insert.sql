@@ -1,0 +1,23 @@
+SET QUOTED_IDENTIFIER ON
+GO
+SET ANSI_NULLS ON
+GO
+
+
+-- Inserts a new record into the 'SCH_INVITEES' table.
+CREATE PROCEDURE [dbo].[_SCH_INVITEES_Insert]
+	@USERID int,
+	@EVENTID int
+AS
+	INSERT INTO [dbo].[SCH_INVITEES]
+	(
+		[USERID],
+		[EVENTID]
+	)
+	VALUES
+	(
+		@USERID,
+		@EVENTID
+	)
+	SELECT @@IDENTITY
+GO

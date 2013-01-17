@@ -1,0 +1,11 @@
+SET QUOTED_IDENTIFIER ON
+GO
+SET ANSI_NULLS ON
+GO
+
+
+-- Deletes all records from the 'ERRORS' table.
+CREATE PROCEDURE [dbo].[_ERRORS_DeleteAll]
+AS
+	DELETE FROM [dbo].[ERRORS]
+GO

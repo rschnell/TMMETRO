@@ -1,0 +1,62 @@
+SET QUOTED_IDENTIFIER ON
+GO
+SET ANSI_NULLS ON
+GO
+
+
+-- Inserts a new record into the 'SUBSCRIPTIONS' table.
+CREATE PROCEDURE [dbo].[_SUBSCRIPTIONS_Insert]
+	@SUBSCRIPTIONID int,
+	@TMROLE nvarchar(50),
+	@TMSUBNAME nvarchar(250),
+	@ACTIVE bit,
+	@DESCRIPTION ntext,
+	@THEMEID int,
+	@HOMEURL nchar(250),
+	@SITECODE nchar(20),
+	@CREATED datetime,
+	@SITEID int,
+	@SUBTYPE int,
+	@ALIASES nvarchar(max),
+	@FLAG1 bit,
+	@FLAG2 bit,
+	@FLAG3 bit
+AS
+	INSERT INTO [dbo].[SUBSCRIPTIONS]
+	(
+		[SUBSCRIPTIONID],
+		[TMROLE],
+		[TMSUBNAME],
+		[ACTIVE],
+		[DESCRIPTION],
+		[THEMEID],
+		[HOMEURL],
+		[SITECODE],
+		[CREATED],
+		[SITEID],
+		[SUBTYPE],
+		[ALIASES],
+		[FLAG1],
+		[FLAG2],
+		[FLAG3]
+	)
+	VALUES
+	(
+		@SUBSCRIPTIONID,
+		@TMROLE,
+		@TMSUBNAME,
+		@ACTIVE,
+		@DESCRIPTION,
+		@THEMEID,
+		@HOMEURL,
+		@SITECODE,
+		@CREATED,
+		@SITEID,
+		@SUBTYPE,
+		@ALIASES,
+		@FLAG1,
+		@FLAG2,
+		@FLAG3
+	)
+	SELECT @@IDENTITY
+GO

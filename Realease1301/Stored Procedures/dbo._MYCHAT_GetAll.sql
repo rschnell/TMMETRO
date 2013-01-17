@@ -1,0 +1,11 @@
+SET QUOTED_IDENTIFIER ON
+GO
+SET ANSI_NULLS ON
+GO
+
+
+-- Gets all records from the 'MYCHAT' table.
+CREATE PROCEDURE [dbo].[_MYCHAT_GetAll]
+AS
+	SELECT * FROM [dbo].[MYCHAT]
+GO

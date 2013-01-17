@@ -1,0 +1,33 @@
+SET QUOTED_IDENTIFIER ON
+GO
+SET ANSI_NULLS ON
+GO
+
+-- Updates a record in the 'CONFIGURATIONS' table.
+CREATE PROCEDURE [dbo].[_CONFIGURATIONS_Update]
+	-- The rest of writeable parameters
+	@DESCRIPTION nvarchar(max),
+	@ONOFF int,
+	@VALUE1 numeric(18,2),
+	@VALUE2 numeric(18,2),
+	@CONTROLID nvarchar(50),
+	@NUMBERFORMAT nvarchar(50),
+	@DATEFORMAT1 nvarchar(50),
+	@CURRENCYSYMBOL nchar(3),
+	@SUBSCRIPTIONID int,
+	-- Primary key parameters
+	@ID int
+AS
+	UPDATE [dbo].[CONFIGURATIONS] SET
+		[DESCRIPTION] = @DESCRIPTION,
+		[ONOFF] = @ONOFF,
+		[VALUE1] = @VALUE1,
+		[VALUE2] = @VALUE2,
+		[CONTROLID] = @CONTROLID,
+		[NUMBERFORMAT] = @NUMBERFORMAT,
+		[DATEFORMAT1] = @DATEFORMAT1,
+		[CURRENCYSYMBOL] = @CURRENCYSYMBOL,
+		[SUBSCRIPTIONID] = @SUBSCRIPTIONID
+	WHERE
+		[ID] = @ID
+GO

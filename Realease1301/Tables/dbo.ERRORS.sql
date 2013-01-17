@@ -1,0 +1,9 @@
+CREATE TABLE [dbo].[ERRORS]
+(
+[ErrorID] [int] NOT NULL,
+[LocalID] [int] NOT NULL,
+[ErrorDescription] [nvarchar] (500) COLLATE SQL_Latin1_General_CP1_CI_AS NULL
+) ON [PRIMARY]
+GO
+ALTER TABLE [dbo].[ERRORS] ADD CONSTRAINT [PK_ERRORS] PRIMARY KEY CLUSTERED  ([ErrorID]) ON [PRIMARY]
+GO

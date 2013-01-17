@@ -1,0 +1,11 @@
+SET QUOTED_IDENTIFIER ON
+GO
+SET ANSI_NULLS ON
+GO
+
+
+-- Deletes all records from the 'REFERENCES' table.
+CREATE PROCEDURE [dbo].[_REFERENCES_DeleteAll]
+AS
+	DELETE FROM [dbo].[REFERENCES]
+GO

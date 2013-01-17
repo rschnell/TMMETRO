@@ -1,0 +1,11 @@
+SET QUOTED_IDENTIFIER ON
+GO
+SET ANSI_NULLS ON
+GO
+
+
+-- Gets all records from the 'DIARY' table.
+CREATE PROCEDURE [dbo].[_DIARY_GetAll]
+AS
+	SELECT * FROM [dbo].[DIARY]
+GO

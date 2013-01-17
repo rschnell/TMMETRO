@@ -1,0 +1,11 @@
+SET QUOTED_IDENTIFIER ON
+GO
+SET ANSI_NULLS ON
+GO
+
+
+-- Gets all records from the 'rptTSTIMESHEETSALLGroupByStore' table.
+CREATE PROCEDURE [dbo].[_rptTSTIMESHEETSALLGroupByStore_GetAll]
+AS
+	SELECT * FROM [dbo].[rptTSTIMESHEETSALLGroupByStore]
+GO

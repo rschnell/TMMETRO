@@ -1,0 +1,73 @@
+SET QUOTED_IDENTIFIER ON
+GO
+SET ANSI_NULLS ON
+GO
+
+
+
+
+
+
+CREATE PROCEDURE [dbo].[cmsNodeUpDateForInsert] 
+(
+
+	@CategoryID integer,
+	@NodeValue	integer ,
+	@ParentNodeValue integer ,
+	@LocalID	integer = 0
+)
+AS
+
+SET NOCOUNT ON
+
+DECLARE @Error Integer
+DECLARE @TREERN integer
+DECLARE @TREELN as Integer
+DECLARE @TREELEVEL AS integer
+SET @Error = 0
+
+IF LEN(@CategoryID) = 0
+BEGIN
+	SET @Error = 113 -- ERROR: NodeNamee required
+END
+
+IF @Error = 0
+BEGIN
+-- http://www.wallpaperama.com/forums/mptt-modified-pre-order-tree-transversal-php-tree-menu-script-t5713.html
+-- Find the left and right of this node to insert underneath
+SET @TREELN=(SELECT TREELN
+            FROM  CASESTREE
+            WHERE (NODEVALUE = @PARENTNODEVALUE) AND  CATEGORYID=@CATEGORYID )
+SET @TREERN=(SELECT TREERN
+            FROM  CASESTREE
+            WHERE (NODEVALUE = @PARENTNODEVALUE) AND CATEGORYID=@CATEGORYID)
+            
+-- Make room in tree
+UPDATE CASESTREE
+SET       TREERN = TREERN + 2
+WHERE (TREERN > @TREERN - 1) AND  CATEGORYID=@CATEGORYID and ACTIVE=1
+UPDATE CASESTREE
+SET       TREELN = TREELN + 2
+WHERE (TREELN > @TREERN - 1) AND  CATEGORYID=@CATEGORYID and ACTIVE=1
+
+UPDATE CASESTREE 
+SET TREELN=@TREERN,TREERN=@TREERN+1 
+WHERE (NODEVALUE = @NODEVALUE) AND CATEGORYID=@CATEGORYID
+
+SET @TREELEVEL=(SELECT COUNT(TREELEVEL) FROM cmsListTreePaths(@NODEVALUE,@CATEGORYID))
+UPDATE CASESTREE
+SET       TREELEVEL = @TREELEVEL
+WHERE (NODEVALUE=@NODEVALUE AND CATEGORYID=@CATEGORYID)
+
+
+END
+
+
+SELECT ErrorDescription FROM ERRORS WHERE ErrorID = @Error AND LocalID = @LocalID
+
+
+
+
+
+
+GO

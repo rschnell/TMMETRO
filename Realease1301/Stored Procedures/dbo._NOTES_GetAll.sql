@@ -1,0 +1,11 @@
+SET QUOTED_IDENTIFIER ON
+GO
+SET ANSI_NULLS ON
+GO
+
+
+-- Gets all records from the 'NOTES' table.
+CREATE PROCEDURE [dbo].[_NOTES_GetAll]
+AS
+	SELECT * FROM [dbo].[NOTES]
+GO

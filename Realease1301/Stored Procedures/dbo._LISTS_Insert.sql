@@ -1,0 +1,77 @@
+SET QUOTED_IDENTIFIER ON
+GO
+SET ANSI_NULLS ON
+GO
+
+
+-- Inserts a new record into the 'LISTS' table.
+CREATE PROCEDURE [dbo].[_LISTS_Insert]
+	@LASTUPDATED smalldatetime,
+	@UPDATEDBY nvarchar(50),
+	@CATEGORY nchar(15),
+	@REFERENCE nchar(15),
+	@LISTORDER int,
+	@CHECKED bit,
+	@TIMELINE datetime,
+	@TITLE nvarchar(max),
+	@QUESTION nvarchar(50),
+	@ANSWER nvarchar(max),
+	@COMMENT ntext,
+	@CASEID nchar(10),
+	@ACTIONID nchar(10),
+	@ROWNO int,
+	@SHEETNO int,
+	@CUSTOM1 ntext,
+	@CUSTOM2 ntext,
+	@CUSTOM3 ntext,
+	@DELFLAG bit,
+	@TEMPLATEID int
+AS
+	INSERT INTO [dbo].[LISTS]
+	(
+		[LASTUPDATED],
+		[UPDATEDBY],
+		[CATEGORY],
+		[REFERENCE],
+		[LISTORDER],
+		[CHECKED],
+		[TIMELINE],
+		[TITLE],
+		[QUESTION],
+		[ANSWER],
+		[COMMENT],
+		[CASEID],
+		[ACTIONID],
+		[ROWNO],
+		[SHEETNO],
+		[CUSTOM1],
+		[CUSTOM2],
+		[CUSTOM3],
+		[DELFLAG],
+		[TEMPLATEID]
+	)
+	VALUES
+	(
+		@LASTUPDATED,
+		@UPDATEDBY,
+		@CATEGORY,
+		@REFERENCE,
+		@LISTORDER,
+		@CHECKED,
+		@TIMELINE,
+		@TITLE,
+		@QUESTION,
+		@ANSWER,
+		@COMMENT,
+		@CASEID,
+		@ACTIONID,
+		@ROWNO,
+		@SHEETNO,
+		@CUSTOM1,
+		@CUSTOM2,
+		@CUSTOM3,
+		@DELFLAG,
+		@TEMPLATEID
+	)
+	SELECT @@IDENTITY
+GO

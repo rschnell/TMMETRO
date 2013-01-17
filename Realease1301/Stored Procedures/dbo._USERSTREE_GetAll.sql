@@ -1,0 +1,10 @@
+SET QUOTED_IDENTIFIER ON
+GO
+SET ANSI_NULLS ON
+GO
+
+-- Gets all records from the 'USERSTREE' table.
+CREATE PROCEDURE [dbo].[_USERSTREE_GetAll]
+AS
+	SELECT * FROM [dbo].[USERSTREE]
+GO

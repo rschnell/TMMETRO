@@ -1,0 +1,24 @@
+SET QUOTED_IDENTIFIER ON
+GO
+SET ANSI_NULLS ON
+GO
+
+
+-- Updates a record in the 'SUBSXUSERS' table.
+CREATE PROCEDURE [dbo].[_SUBSXUSERS_Update]
+	-- The rest of writeable parameters
+	@SUBSCRIPTIONID int,
+	@USERID int,
+	@ISSUBMANAGER bit,
+	@ACTIVE bit,
+	-- Primary key parameters
+	@SUBID int
+AS
+	UPDATE [dbo].[SUBSXUSERS] SET
+		[SUBSCRIPTIONID] = @SUBSCRIPTIONID,
+		[USERID] = @USERID,
+		[ISSUBMANAGER] = @ISSUBMANAGER,
+		[ACTIVE] = @ACTIVE
+	WHERE
+		[SUBID] = @SUBID
+GO

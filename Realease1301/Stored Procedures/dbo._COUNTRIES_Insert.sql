@@ -1,0 +1,47 @@
+SET QUOTED_IDENTIFIER ON
+GO
+SET ANSI_NULLS ON
+GO
+
+
+-- Inserts a new record into the 'COUNTRIES' table.
+CREATE PROCEDURE [dbo].[_COUNTRIES_Insert]
+	@ID varchar(2),
+	@REGION_NAME varchar(12),
+	@COUNTRY_NAME varchar(50),
+	@COUNTRY_CODE varchar(2),
+	@CURRENCY_NAME varchar(25),
+	@CURRENCY_CODE varchar(3),
+	@COUNTRYCODE varchar(3),
+	@RATE numeric(18,3),
+	@RATEDATE datetime,
+	@PER int
+AS
+	INSERT INTO [dbo].[COUNTRIES]
+	(
+		[ID],
+		[REGION_NAME],
+		[COUNTRY_NAME],
+		[COUNTRY_CODE],
+		[CURRENCY_NAME],
+		[CURRENCY_CODE],
+		[COUNTRYCODE],
+		[RATE],
+		[RATEDATE],
+		[PER]
+	)
+	VALUES
+	(
+		@ID,
+		@REGION_NAME,
+		@COUNTRY_NAME,
+		@COUNTRY_CODE,
+		@CURRENCY_NAME,
+		@CURRENCY_CODE,
+		@COUNTRYCODE,
+		@RATE,
+		@RATEDATE,
+		@PER
+	)
+	SELECT @@IDENTITY
+GO

@@ -1,0 +1,55 @@
+SET QUOTED_IDENTIFIER ON
+GO
+SET ANSI_NULLS ON
+GO
+
+
+-- Inserts a new record into the 'CASESTREEBASE' table.
+CREATE PROCEDURE [dbo].[_CASESTREEBASE_Insert]
+	@TREEID int,
+	@CATEGORYID int,
+	@NODENAME nvarchar(50),
+	@NODEVALUE int,
+	@NODETEXT nvarchar(max),
+	@DEFAULT bit,
+	@TREELEVEL int,
+	@TREELN int,
+	@TREERN int,
+	@ACTIVE bit,
+	@NODETAG nvarchar(50),
+	@PARENTID int,
+	@NODEID int
+AS
+	INSERT INTO [dbo].[CASESTREEBASE]
+	(
+		[TREEID],
+		[CATEGORYID],
+		[NODENAME],
+		[NODEVALUE],
+		[NODETEXT],
+		[DEFAULT],
+		[TREELEVEL],
+		[TREELN],
+		[TREERN],
+		[ACTIVE],
+		[NODETAG],
+		[PARENTID],
+		[NODEID]
+	)
+	VALUES
+	(
+		@TREEID,
+		@CATEGORYID,
+		@NODENAME,
+		@NODEVALUE,
+		@NODETEXT,
+		@DEFAULT,
+		@TREELEVEL,
+		@TREELN,
+		@TREERN,
+		@ACTIVE,
+		@NODETAG,
+		@PARENTID,
+		@NODEID
+	)
+GO

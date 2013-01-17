@@ -1,0 +1,40 @@
+SET QUOTED_IDENTIFIER ON
+GO
+SET ANSI_NULLS ON
+GO
+
+-- Inserts a new record into the 'USERSTREE' table.
+CREATE PROCEDURE [dbo].[_USERSTREE_Insert]
+	@CATEGORYID int,
+	@NODENAME nchar(50),
+	@PARENTID int,
+	@LEVELTYPE nchar(50),
+	@DEFAULT bit,
+	@TREELN int,
+	@TREERN int,
+	@RELATIVE int
+AS
+	INSERT INTO [dbo].[USERSTREE]
+	(
+		[CATEGORYID],
+		[NODENAME],
+		[PARENTID],
+		[LEVELTYPE],
+		[DEFAULT],
+		[TREELN],
+		[TREERN],
+		[RELATIVE]
+	)
+	VALUES
+	(
+		@CATEGORYID,
+		@NODENAME,
+		@PARENTID,
+		@LEVELTYPE,
+		@DEFAULT,
+		@TREELN,
+		@TREERN,
+		@RELATIVE
+	)
+	SELECT @@IDENTITY
+GO

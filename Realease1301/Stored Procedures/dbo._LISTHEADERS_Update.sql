@@ -1,0 +1,30 @@
+SET QUOTED_IDENTIFIER ON
+GO
+SET ANSI_NULLS ON
+GO
+
+
+-- Updates a record in the 'LISTHEADERS' table.
+CREATE PROCEDURE [dbo].[_LISTHEADERS_Update]
+	-- The rest of writeable parameters
+	@TITLE nchar(100),
+	@DESCRIPTION nvarchar(70),
+	@CASEID int,
+	@ACTIONID int,
+	@SHEETNO int,
+	@SHEETNAME nchar(6),
+	@SHEETTYPE int,
+	-- Primary key parameters
+	@LISTHEADERID int
+AS
+	UPDATE [dbo].[LISTHEADERS] SET
+		[TITLE] = @TITLE,
+		[DESCRIPTION] = @DESCRIPTION,
+		[CASEID] = @CASEID,
+		[ACTIONID] = @ACTIONID,
+		[SHEETNO] = @SHEETNO,
+		[SHEETNAME] = @SHEETNAME,
+		[SHEETTYPE] = @SHEETTYPE
+	WHERE
+		[LISTHEADERID] = @LISTHEADERID
+GO

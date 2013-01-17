@@ -1,0 +1,13 @@
+SET QUOTED_IDENTIFIER ON
+GO
+SET ANSI_NULLS ON
+GO
+
+
+-- Gets a record from the 'LEDGERVALUES' table using the primary key value.
+CREATE PROCEDURE [dbo].[_LEDGERVALUES_GetByPrimaryKey]
+	@VALUEID int
+AS
+	SELECT * FROM [dbo].[LEDGERVALUES] WHERE
+		[VALUEID] = @VALUEID
+GO

@@ -1,0 +1,56 @@
+SET QUOTED_IDENTIFIER ON
+GO
+SET ANSI_NULLS ON
+GO
+
+
+-- Inserts a new record into the 'POIGALLERY' table.
+CREATE PROCEDURE [dbo].[_POIGALLERY_Insert]
+	@ID uniqueidentifier,
+	@PERSONID int,
+	@SUBSCRIPTIONID int,
+	@CASEID int,
+	@ACTIONID int,
+	@PICTURE varbinary(max),
+	@UPDATED datetime,
+	@UPDATEDBY int,
+	@TITLE nvarchar(50),
+	@DESCRIPTION nvarchar(50),
+	@DATETAKEN datetime,
+	@PICTYPE int,
+	@EXT nchar(10)
+AS
+	INSERT INTO [dbo].[POIGALLERY]
+	(
+		[ID],
+		[PERSONID],
+		[SUBSCRIPTIONID],
+		[CASEID],
+		[ACTIONID],
+		[PICTURE],
+		[UPDATED],
+		[UPDATEDBY],
+		[TITLE],
+		[DESCRIPTION],
+		[DATETAKEN],
+		[PICTYPE],
+		[EXT]
+	)
+	VALUES
+	(
+		@ID,
+		@PERSONID,
+		@SUBSCRIPTIONID,
+		@CASEID,
+		@ACTIONID,
+		@PICTURE,
+		@UPDATED,
+		@UPDATEDBY,
+		@TITLE,
+		@DESCRIPTION,
+		@DATETAKEN,
+		@PICTYPE,
+		@EXT
+	)
+	SELECT @@IDENTITY
+GO

@@ -1,0 +1,28 @@
+SET QUOTED_IDENTIFIER ON
+GO
+SET ANSI_NULLS ON
+GO
+
+
+-- Inserts a new record into the 'TRANSLATIONS25052012' table.
+CREATE PROCEDURE [dbo].[_TRANSLATIONS25052012_Insert]
+	@CODE nchar(5),
+	@BASEKEY nvarchar(max),
+	@LOCAL nvarchar(max),
+	@INUSE bit
+AS
+	INSERT INTO [dbo].[TRANSLATIONS25052012]
+	(
+		[CODE],
+		[BASEKEY],
+		[LOCAL],
+		[INUSE]
+	)
+	VALUES
+	(
+		@CODE,
+		@BASEKEY,
+		@LOCAL,
+		@INUSE
+	)
+GO

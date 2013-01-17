@@ -1,0 +1,13 @@
+SET QUOTED_IDENTIFIER ON
+GO
+SET ANSI_NULLS ON
+GO
+
+
+-- Gets a record from the 'POIGALLERY' table using the primary key value.
+CREATE PROCEDURE [dbo].[_POIGALLERY_GetByPrimaryKey]
+	@GALLERYID int
+AS
+	SELECT * FROM [dbo].[POIGALLERY] WHERE
+		[GALLERYID] = @GALLERYID
+GO

@@ -1,0 +1,13 @@
+SET QUOTED_IDENTIFIER ON
+GO
+SET ANSI_NULLS ON
+GO
+
+
+-- Deletes a record from the 'USERSPROFILES' table using the primary key value.
+CREATE PROCEDURE [dbo].[_USERSPROFILES_DeleteByPrimaryKey]
+	@PROFILEID int
+AS
+	DELETE FROM [dbo].[USERSPROFILES] WHERE
+		[PROFILEID] = @PROFILEID
+GO

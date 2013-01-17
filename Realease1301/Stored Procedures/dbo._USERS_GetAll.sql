@@ -1,0 +1,11 @@
+SET QUOTED_IDENTIFIER ON
+GO
+SET ANSI_NULLS ON
+GO
+
+
+-- Gets all records from the 'USERS' table.
+CREATE PROCEDURE [dbo].[_USERS_GetAll]
+AS
+	SELECT * FROM [dbo].[USERS]
+GO

@@ -1,0 +1,10 @@
+SET QUOTED_IDENTIFIER ON
+GO
+SET ANSI_NULLS ON
+GO
+
+-- Gets all records from the 'BASICTREE' table.
+CREATE PROCEDURE [dbo].[_BASICTREE_GetAll]
+AS
+	SELECT * FROM [dbo].[BASICTREE]
+GO

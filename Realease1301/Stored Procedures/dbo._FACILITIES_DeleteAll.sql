@@ -1,0 +1,11 @@
+SET QUOTED_IDENTIFIER ON
+GO
+SET ANSI_NULLS ON
+GO
+
+
+-- Deletes all records from the 'FACILITIES' table.
+CREATE PROCEDURE [dbo].[_FACILITIES_DeleteAll]
+AS
+	DELETE FROM [dbo].[FACILITIES]
+GO

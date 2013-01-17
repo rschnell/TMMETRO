@@ -1,0 +1,11 @@
+SET QUOTED_IDENTIFIER ON
+GO
+SET ANSI_NULLS ON
+GO
+
+
+-- Gets all records from the 'AllSiteLANGUAGES' table.
+CREATE PROCEDURE [dbo].[_AllSiteLANGUAGES_GetAll]
+AS
+	SELECT * FROM [dbo].[AllSiteLANGUAGES]
+GO

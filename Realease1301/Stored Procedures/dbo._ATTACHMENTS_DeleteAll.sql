@@ -1,0 +1,11 @@
+SET QUOTED_IDENTIFIER ON
+GO
+SET ANSI_NULLS ON
+GO
+
+
+-- Deletes all records from the 'ATTACHMENTS' table.
+CREATE PROCEDURE [dbo].[_ATTACHMENTS_DeleteAll]
+AS
+	DELETE FROM [dbo].[ATTACHMENTS]
+GO

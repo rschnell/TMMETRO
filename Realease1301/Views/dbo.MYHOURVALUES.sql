@@ -1,0 +1,20 @@
+SET QUOTED_IDENTIFIER ON
+GO
+SET ANSI_NULLS ON
+GO
+
+
+CREATE VIEW [dbo].[MYHOURVALUES]
+AS
+SELECT     dbo.LEDGERVALUES.TotalValue AS HOURS, dbo.LEDGERVALUES.ValueTypeID AS TYPEID, dbo.LEDGERVALUES.Description AS ACTIVITY, 
+                      dbo.LEDGERVALUES.ValueDate AS ACTIVITYDATE, dbo.LEDGERVALUES.Active, dbo.LEDGERVALUES.GroupID AS LOCATIONID, 
+                      dbo.LEDGERVALUES.Location2TypeId AS USERID, dbo.LEDGERVALUES.AssetTypeId AS HOURSTYPE, DATEPART(wk, dbo.LEDGERVALUES.ValueDate) AS WEEKNO, 
+                      dbo.USERS.UserName, dbo.LEDGERVALUES.VALUEID AS ENTRYNO, dbo.LEDGERVALUES.ValueFromDate, dbo.LEDGERVALUES.ValueToDate, 
+                      dbo.LEDGERVALUES.CurrencyTypeID AS PAUSE, dbo.USERS.FirstName, dbo.USERS.LastName, dbo.LEDGERVALUES.Quantity AS RATE
+FROM         dbo.USERSEXTENDED INNER JOIN
+                      dbo.USERS ON dbo.USERSEXTENDED.USERID = dbo.USERS.UserId RIGHT OUTER JOIN
+                      dbo.LEDGERVALUES ON dbo.USERS.UserId = dbo.LEDGERVALUES.Location2TypeId
+WHERE     (dbo.LEDGERVALUES.ValueTypeID < 10) AND (dbo.LEDGERVALUES.AssetTypeId = 2)
+
+
+GO

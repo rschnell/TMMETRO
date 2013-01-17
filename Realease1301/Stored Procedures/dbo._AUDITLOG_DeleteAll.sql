@@ -1,0 +1,11 @@
+SET QUOTED_IDENTIFIER ON
+GO
+SET ANSI_NULLS ON
+GO
+
+
+-- Deletes all records from the 'AUDITLOG' table.
+CREATE PROCEDURE [dbo].[_AUDITLOG_DeleteAll]
+AS
+	DELETE FROM [dbo].[AUDITLOG]
+GO

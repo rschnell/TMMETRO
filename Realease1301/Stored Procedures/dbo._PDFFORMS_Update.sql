@@ -1,0 +1,48 @@
+SET QUOTED_IDENTIFIER ON
+GO
+SET ANSI_NULLS ON
+GO
+
+
+-- Updates a record in the 'PDFFORMS' table.
+CREATE PROCEDURE [dbo].[_PDFFORMS_Update]
+	-- The rest of writeable parameters
+	@CASEID int,
+	@ACTIONID int,
+	@ATTACHMENTID int,
+	@CABINETID int,
+	@FDF nvarchar(max),
+	@PDFFIELDS nvarchar(max),
+	@LASTUPDATED datetime,
+	@UPDATEDBYUSERID int,
+	@UPDATEDBY nvarchar(50),
+	@DATECREATED datetime,
+	@CREATEDBYUSERID int,
+	@CREATEDBY nvarchar(50),
+	@ACTIVE bit,
+	@TYPENO int,
+	@SEQNO int,
+	@REVNO int,
+	-- Primary key parameters
+	@FORMID int
+AS
+	UPDATE [dbo].[PDFFORMS] SET
+		[CASEID] = @CASEID,
+		[ACTIONID] = @ACTIONID,
+		[ATTACHMENTID] = @ATTACHMENTID,
+		[CABINETID] = @CABINETID,
+		[FDF] = @FDF,
+		[PDFFIELDS] = @PDFFIELDS,
+		[LASTUPDATED] = @LASTUPDATED,
+		[UPDATEDBYUSERID] = @UPDATEDBYUSERID,
+		[UPDATEDBY] = @UPDATEDBY,
+		[DATECREATED] = @DATECREATED,
+		[CREATEDBYUSERID] = @CREATEDBYUSERID,
+		[CREATEDBY] = @CREATEDBY,
+		[ACTIVE] = @ACTIVE,
+		[TYPENO] = @TYPENO,
+		[SEQNO] = @SEQNO,
+		[REVNO] = @REVNO
+	WHERE
+		[FORMID] = @FORMID
+GO

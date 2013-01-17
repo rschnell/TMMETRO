@@ -1,0 +1,31 @@
+SET QUOTED_IDENTIFIER ON
+GO
+SET ANSI_NULLS ON
+GO
+
+
+-- Inserts a new record into the 'SUBSCRIPTIONSEXT' table.
+CREATE PROCEDURE [dbo].[_SUBSCRIPTIONSEXT_Insert]
+	@SUBSCRIPTIONID int,
+	@FLAG4 bit,
+	@FLAG5 bit,
+	@FLAG6 bit,
+	@DAYS int
+AS
+	INSERT INTO [dbo].[SUBSCRIPTIONSEXT]
+	(
+		[SUBSCRIPTIONID],
+		[FLAG4],
+		[FLAG5],
+		[FLAG6],
+		[DAYS]
+	)
+	VALUES
+	(
+		@SUBSCRIPTIONID,
+		@FLAG4,
+		@FLAG5,
+		@FLAG6,
+		@DAYS
+	)
+GO

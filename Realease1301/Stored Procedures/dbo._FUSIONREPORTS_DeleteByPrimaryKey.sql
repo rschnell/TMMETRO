@@ -1,0 +1,13 @@
+SET QUOTED_IDENTIFIER ON
+GO
+SET ANSI_NULLS ON
+GO
+
+
+-- Deletes a record from the 'FUSIONREPORTS' table using the primary key value.
+CREATE PROCEDURE [dbo].[_FUSIONREPORTS_DeleteByPrimaryKey]
+	@REPORTID int
+AS
+	DELETE FROM [dbo].[FUSIONREPORTS] WHERE
+		[REPORTID] = @REPORTID
+GO

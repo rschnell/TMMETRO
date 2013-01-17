@@ -1,0 +1,11 @@
+SET QUOTED_IDENTIFIER ON
+GO
+SET ANSI_NULLS ON
+GO
+
+
+-- Deletes all records from the 'ETEMPLATES' table.
+CREATE PROCEDURE [dbo].[_ETEMPLATES_DeleteAll]
+AS
+	DELETE FROM [dbo].[ETEMPLATES]
+GO

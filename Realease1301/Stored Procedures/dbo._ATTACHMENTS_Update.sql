@@ -1,0 +1,40 @@
+SET QUOTED_IDENTIFIER ON
+GO
+SET ANSI_NULLS ON
+GO
+
+
+-- Updates a record in the 'ATTACHMENTS' table.
+CREATE PROCEDURE [dbo].[_ATTACHMENTS_Update]
+	-- The rest of writeable parameters
+	@DIARYID int,
+	@TITLE nvarchar(50),
+	@FILENAME nvarchar(255),
+	@FILEGUID varchar(50),
+	@FILEPATH nvarchar(255),
+	@FILEVERSION int,
+	@CONTENTTYPE varchar(255),
+	@_CMSUSERSRaisedBy int,
+	@FILESIZE int,
+	@ACTIVE bit,
+	@TYPE int,
+	@LISTID int,
+	-- Primary key parameters
+	@ATTACHMENTID int
+AS
+	UPDATE [dbo].[ATTACHMENTS] SET
+		[DIARYID] = @DIARYID,
+		[TITLE] = @TITLE,
+		[FILENAME] = @FILENAME,
+		[FILEGUID] = @FILEGUID,
+		[FILEPATH] = @FILEPATH,
+		[FILEVERSION] = @FILEVERSION,
+		[CONTENTTYPE] = @CONTENTTYPE,
+		[_CMSUSERSRaisedBy] = @_CMSUSERSRaisedBy,
+		[FILESIZE] = @FILESIZE,
+		[ACTIVE] = @ACTIVE,
+		[TYPE] = @TYPE,
+		[LISTID] = @LISTID
+	WHERE
+		[ATTACHMENTID] = @ATTACHMENTID
+GO

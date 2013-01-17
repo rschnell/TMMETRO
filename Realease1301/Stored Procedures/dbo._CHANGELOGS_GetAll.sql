@@ -1,0 +1,11 @@
+SET QUOTED_IDENTIFIER ON
+GO
+SET ANSI_NULLS ON
+GO
+
+
+-- Gets all records from the 'CHANGELOGS' table.
+CREATE PROCEDURE [dbo].[_CHANGELOGS_GetAll]
+AS
+	SELECT * FROM [dbo].[CHANGELOGS]
+GO

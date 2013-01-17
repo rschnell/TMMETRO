@@ -1,0 +1,10 @@
+SET QUOTED_IDENTIFIER ON
+GO
+SET ANSI_NULLS ON
+GO
+
+-- Gets all records from the 'AllVALUESTREE' table.
+CREATE PROCEDURE [dbo].[_AllVALUESTREE_GetAll]
+AS
+	SELECT * FROM [dbo].[AllVALUESTREE]
+GO

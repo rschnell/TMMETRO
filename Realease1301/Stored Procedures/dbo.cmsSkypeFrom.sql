@@ -1,0 +1,38 @@
+SET QUOTED_IDENTIFIER OFF
+GO
+SET ANSI_NULLS ON
+GO
+
+
+CREATE PROCEDURE dbo.cmsSkypeFrom
+(
+	@SubscriptionID integer,
+	@UserID integer
+)
+AS
+
+SET NOCOUNT ON
+
+DECLARE @From varchar(500)
+DECLARE @URL varchar(500)
+DECLARE @URLAttach varchar(500)
+
+SET @From = RTRIM(ISNULL((SELECT RTRIM(USERS.Firstname + ' ') + USERS.Lastname FROM USERS WHERE USERS.UserID = @UserID),''))
+SET @URL = RTRIM((SELECT HOMEURL FROM SUBSCRIPTIONS WHERE SubscriptionID = @SubscriptionID))
+
+IF SUBSTRING(@URL, LEN(@URL), 1) <> '/'
+BEGIN
+	SET @URL = @URL + '/'
+END
+IF LOWER(SUBSTRING(@URL, 1, 4)) <> 'http'
+BEGIN
+	SET @URL = 'http://' + @URL
+END
+
+SET @URLAttach = @URL /*(SELECT CONFIGVALUE FROM CONFIG WHERE CONFIGNAME = 'TMATTACHPATH')*/
+
+SELECT 	@From AS 'From',
+		@URL AS 'URL',
+		@URLAttach AS 'URLAttach'
+
+GO

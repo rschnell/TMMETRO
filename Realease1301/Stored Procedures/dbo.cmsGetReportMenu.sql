@@ -1,0 +1,24 @@
+SET QUOTED_IDENTIFIER OFF
+GO
+SET ANSI_NULLS ON
+GO
+
+CREATE PROCEDURE dbo.cmsGetReportMenu 
+(
+	@SubscriptionID INTEGER=0
+)
+AS
+SET NOCOUNT ON
+
+SELECT [ID],
+       [DESCRIPTION],
+       [NAME],
+       [PARAMETERS],
+       [ACTIVE],
+       [REPORTTYPE],
+       [SUBSCRIPTIONID]
+  FROM [REPORTS]
+ WHERE ([ACTIVE] = 1
+   AND (@SubscriptionID = 0 OR @SubscriptionID = [SUBSCRIPTIONID]))
+
+GO

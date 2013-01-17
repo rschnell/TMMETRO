@@ -1,0 +1,32 @@
+SET QUOTED_IDENTIFIER OFF
+GO
+SET ANSI_NULLS ON
+GO
+
+CREATE PROCEDURE dbo.cmsUpdScheduleEmail 
+(
+	@ReportScheduleID INTEGER,
+	@Email VARCHAR(500),
+	@Status INTEGER
+)
+AS
+SET NOCOUNT ON
+
+IF @Status = 0
+BEGIN
+   DELETE [REPORTSCHEDULEEMAILS]
+    WHERE [REPORTSCHEDULEID] = @ReportScheduleID
+END
+ELSE
+BEGIN
+   IF NOT EXISTS(SELECT [EMAIL] FROM [REPORTSCHEDULEEMAILS]
+                               WHERE [REPORTSCHEDULEID] = @ReportScheduleID
+                                 AND [EMAIL] = @Email)
+   BEGIN
+      INSERT INTO [REPORTSCHEDULEEMAILS]
+                  ([REPORTSCHEDULEID], [EMAIL])
+           VALUES (@ReportScheduleID, @Email)
+   END
+END
+
+GO

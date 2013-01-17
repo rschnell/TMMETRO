@@ -1,0 +1,11 @@
+SET QUOTED_IDENTIFIER ON
+GO
+SET ANSI_NULLS ON
+GO
+
+
+-- Deletes all records from the 'CABINET' table.
+CREATE PROCEDURE [dbo].[_CABINET_DeleteAll]
+AS
+	DELETE FROM [dbo].[CABINET]
+GO

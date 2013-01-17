@@ -1,0 +1,13 @@
+SET QUOTED_IDENTIFIER ON
+GO
+SET ANSI_NULLS ON
+GO
+
+
+-- Deletes a record from the 'ATTACHMENTS' table using the primary key value.
+CREATE PROCEDURE [dbo].[_ATTACHMENTS_DeleteByPrimaryKey]
+	@ATTACHMENTID int
+AS
+	DELETE FROM [dbo].[ATTACHMENTS] WHERE
+		[ATTACHMENTID] = @ATTACHMENTID
+GO

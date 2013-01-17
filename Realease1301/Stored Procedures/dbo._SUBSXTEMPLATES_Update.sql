@@ -1,0 +1,20 @@
+SET QUOTED_IDENTIFIER ON
+GO
+SET ANSI_NULLS ON
+GO
+
+
+-- Updates a record in the 'SUBSXTEMPLATES' table.
+CREATE PROCEDURE [dbo].[_SUBSXTEMPLATES_Update]
+	-- The rest of writeable parameters
+	@SUBSCRIPTIONID int,
+	@TEMPLATEID int,
+	-- Primary key parameters
+	@ID int
+AS
+	UPDATE [dbo].[SUBSXTEMPLATES] SET
+		[SUBSCRIPTIONID] = @SUBSCRIPTIONID,
+		[TEMPLATEID] = @TEMPLATEID
+	WHERE
+		[ID] = @ID
+GO

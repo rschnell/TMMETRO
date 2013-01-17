@@ -1,0 +1,11 @@
+SET QUOTED_IDENTIFIER ON
+GO
+SET ANSI_NULLS ON
+GO
+
+
+-- Deletes all records from the 'PERSONS' table.
+CREATE PROCEDURE [dbo].[_PERSONS_DeleteAll]
+AS
+	DELETE FROM [dbo].[PERSONS]
+GO

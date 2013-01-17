@@ -1,0 +1,23 @@
+SET QUOTED_IDENTIFIER OFF
+GO
+SET ANSI_NULLS ON
+GO
+
+
+CREATE PROCEDURE dbo.cmsSkypeMember 
+(
+	@ChatName		nvarchar(MAX),
+	@SkypeHandle	nvarchar(MAX)
+)
+AS
+
+SET NOCOUNT ON
+
+SELECT	USERS.UserName,
+		USERS.SkypeHandle
+FROM TM_Notify..SkypeCHAT AS Skype
+INNER JOIN CASESXUSERS ON CASESXUSERS.CaseID = Skype.CaseID AND CASESXUSERS.ActionID = Skype.ActionID
+INNER JOIN USERS ON USERS.UserID = CASESXUSERS.UserID AND USERS.SkypeHandle = @SkypeHandle
+WHERE Skype.Name = @ChatName
+
+GO

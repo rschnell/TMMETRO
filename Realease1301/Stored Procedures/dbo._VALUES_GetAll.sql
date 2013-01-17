@@ -1,0 +1,10 @@
+SET QUOTED_IDENTIFIER ON
+GO
+SET ANSI_NULLS ON
+GO
+
+-- Gets all records from the 'VALUES' table.
+CREATE PROCEDURE [dbo].[_VALUES_GetAll]
+AS
+	SELECT * FROM [dbo].[VALUES]
+GO

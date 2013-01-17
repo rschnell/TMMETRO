@@ -1,0 +1,10 @@
+SET QUOTED_IDENTIFIER ON
+GO
+SET ANSI_NULLS ON
+GO
+
+-- Deletes all records from the 'BASICTREE' table.
+CREATE PROCEDURE [dbo].[_BASICTREE_DeleteAll]
+AS
+	DELETE FROM [dbo].[BASICTREE]
+GO

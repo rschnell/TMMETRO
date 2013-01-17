@@ -1,0 +1,11 @@
+SET QUOTED_IDENTIFIER ON
+GO
+SET ANSI_NULLS ON
+GO
+
+
+-- Gets all records from the 'CASEX' table.
+CREATE PROCEDURE [dbo].[_CASEX_GetAll]
+AS
+	SELECT * FROM [dbo].[CASEX]
+GO

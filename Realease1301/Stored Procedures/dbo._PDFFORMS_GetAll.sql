@@ -1,0 +1,11 @@
+SET QUOTED_IDENTIFIER ON
+GO
+SET ANSI_NULLS ON
+GO
+
+
+-- Gets all records from the 'PDFFORMS' table.
+CREATE PROCEDURE [dbo].[_PDFFORMS_GetAll]
+AS
+	SELECT * FROM [dbo].[PDFFORMS]
+GO

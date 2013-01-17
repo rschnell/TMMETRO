@@ -1,0 +1,11 @@
+SET QUOTED_IDENTIFIER ON
+GO
+SET ANSI_NULLS ON
+GO
+
+
+-- Deletes all records from the 'SCH_INVITEES' table.
+CREATE PROCEDURE [dbo].[_SCH_INVITEES_DeleteAll]
+AS
+	DELETE FROM [dbo].[SCH_INVITEES]
+GO

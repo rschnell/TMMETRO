@@ -1,0 +1,11 @@
+SET QUOTED_IDENTIFIER ON
+GO
+SET ANSI_NULLS ON
+GO
+
+
+-- Gets all records from the 'rptCASESMETROB' table.
+CREATE PROCEDURE [dbo].[_rptCASESMETROB_GetAll]
+AS
+	SELECT * FROM [dbo].[rptCASESMETROB]
+GO

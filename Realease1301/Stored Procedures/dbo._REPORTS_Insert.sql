@@ -1,0 +1,35 @@
+SET QUOTED_IDENTIFIER ON
+GO
+SET ANSI_NULLS ON
+GO
+
+
+-- Inserts a new record into the 'REPORTS' table.
+CREATE PROCEDURE [dbo].[_REPORTS_Insert]
+	@DESCRIPTION nvarchar(max),
+	@NAME nvarchar(50),
+	@PARAMETERS nvarchar(max),
+	@ACTIVE bit,
+	@REPORTTYPE int,
+	@SUBSCRIPTIONID int
+AS
+	INSERT INTO [dbo].[REPORTS]
+	(
+		[DESCRIPTION],
+		[NAME],
+		[PARAMETERS],
+		[ACTIVE],
+		[REPORTTYPE],
+		[SUBSCRIPTIONID]
+	)
+	VALUES
+	(
+		@DESCRIPTION,
+		@NAME,
+		@PARAMETERS,
+		@ACTIVE,
+		@REPORTTYPE,
+		@SUBSCRIPTIONID
+	)
+	SELECT @@IDENTITY
+GO

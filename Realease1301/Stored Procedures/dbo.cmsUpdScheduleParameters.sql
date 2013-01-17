@@ -1,0 +1,31 @@
+SET QUOTED_IDENTIFIER OFF
+GO
+SET ANSI_NULLS ON
+GO
+
+CREATE PROCEDURE dbo.cmsUpdScheduleParameters 
+(
+	@ReportScheduleParameterID INTEGER=0,
+	@ReportScheduleID INTEGER,
+	@Name VARCHAR(50),
+	@Value VARCHAR(100)
+)
+AS
+SET NOCOUNT ON
+
+IF @ReportScheduleParameterID > 0
+BEGIN
+   UPDATE [REPORTSCHEDULEPARAMETERS]
+      SET [REPORTSCHEDULEID] = @ReportScheduleID,
+          [PARAMETERNAME] = @Name,
+          [PARAMETERVALUE] = @Value
+    WHERE [REPORTSCHEDULEPARAMETERID] = @ReportScheduleParameterID
+END
+ELSE
+BEGIN
+   INSERT INTO [REPORTSCHEDULEPARAMETERS]
+               ([REPORTSCHEDULEID], [PARAMETERNAME], [PARAMETERVALUE])
+        VALUES (@ReportScheduleID, @Name, @Value)
+END
+
+GO

@@ -1,0 +1,11 @@
+SET QUOTED_IDENTIFIER ON
+GO
+SET ANSI_NULLS ON
+GO
+
+
+-- Deletes all records from the 'PDFFORMS' table.
+CREATE PROCEDURE [dbo].[_PDFFORMS_DeleteAll]
+AS
+	DELETE FROM [dbo].[PDFFORMS]
+GO

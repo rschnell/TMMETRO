@@ -1,0 +1,13 @@
+SET QUOTED_IDENTIFIER ON
+GO
+SET ANSI_NULLS ON
+GO
+
+
+-- Deletes a record from the 'ETEMPLATES' table using the primary key value.
+CREATE PROCEDURE [dbo].[_ETEMPLATES_DeleteByPrimaryKey]
+	@ETEMPLATEID int
+AS
+	DELETE FROM [dbo].[ETEMPLATES] WHERE
+		[ETEMPLATEID] = @ETEMPLATEID
+GO

@@ -1,0 +1,11 @@
+SET QUOTED_IDENTIFIER ON
+GO
+SET ANSI_NULLS ON
+GO
+
+
+-- Deletes all records from the 'THEMES' table.
+CREATE PROCEDURE [dbo].[_THEMES_DeleteAll]
+AS
+	DELETE FROM [dbo].[THEMES]
+GO

@@ -1,0 +1,26 @@
+SET QUOTED_IDENTIFIER ON
+GO
+SET ANSI_NULLS ON
+GO
+
+
+-- Inserts a new record into the 'CASESXPERSONS' table.
+CREATE PROCEDURE [dbo].[_CASESXPERSONS_Insert]
+	@PERSONID int,
+	@CASEID int,
+	@ACTIVE int
+AS
+	INSERT INTO [dbo].[CASESXPERSONS]
+	(
+		[PERSONID],
+		[CASEID],
+		[ACTIVE]
+	)
+	VALUES
+	(
+		@PERSONID,
+		@CASEID,
+		@ACTIVE
+	)
+	SELECT @@IDENTITY
+GO

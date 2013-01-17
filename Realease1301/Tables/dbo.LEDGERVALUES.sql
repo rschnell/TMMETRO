@@ -1,0 +1,35 @@
+CREATE TABLE [dbo].[LEDGERVALUES]
+(
+[VALUEID] [int] NOT NULL IDENTITY(1, 1),
+[DiaryID] [int] NULL,
+[ValueTypeID] [int] NULL CONSTRAINT [DF_LEDGERVALUES_ValueTypeID] DEFAULT ((0)),
+[TotalValue] [numeric] (18, 3) NULL CONSTRAINT [DF_LEDGERVALUES_TotalValue] DEFAULT ((0.0)),
+[Description] [nvarchar] (max) COLLATE SQL_Latin1_General_CP1_CI_AS NULL,
+[ValueDate] [datetime] NULL,
+[Active] [bit] NULL CONSTRAINT [DF_LEDGERVALUES_Active] DEFAULT ((1)),
+[ValueFromDate] [datetime] NULL,
+[ValueToDate] [datetime] NULL,
+[GroupID] [int] NULL CONSTRAINT [DF_LEDGERVALUES_GroupID] DEFAULT ((0)),
+[Location2TypeId] [int] NULL CONSTRAINT [DF_LEDGERVALUES_Location2TypeId] DEFAULT ((0)),
+[City] [ntext] COLLATE SQL_Latin1_General_CP1_CI_AS NULL,
+[RateTypeId] [int] NULL CONSTRAINT [DF_LEDGERVALUES_RateTypeId] DEFAULT ((0)),
+[AssetTypeId] [int] NULL CONSTRAINT [DF_LEDGERVALUES_AssetTypeId] DEFAULT ((0)),
+[AssetUOMId] [int] NULL CONSTRAINT [DF_LEDGERVALUES_AssetUOMId] DEFAULT ((0)),
+[CurrencyTypeID] [int] NULL CONSTRAINT [DF_LEDGERVALUES_CurrencyTypeID] DEFAULT ((0)),
+[Quantity] [numeric] (18, 3) NULL CONSTRAINT [DF_LEDGERVALUES_Quantity] DEFAULT ((1)),
+[UnitValue] [numeric] (18, 3) NULL CONSTRAINT [DF_LEDGERVALUES_UnitValue] DEFAULT ((0.0)),
+[AssetDescription] [ntext] COLLATE SQL_Latin1_General_CP1_CI_AS NULL,
+[Country] [nchar] (60) COLLATE SQL_Latin1_General_CP1_CI_AS NULL,
+[CurrencyCode] [char] (3) COLLATE SQL_Latin1_General_CP1_CI_AS NULL,
+[CurrencyRate] [numeric] (18, 3) NULL CONSTRAINT [DF_LEDGERVALUES_CurrencyRate] DEFAULT ((1)),
+[CurrencyPer] [int] NULL CONSTRAINT [DF_LEDGERVALUES_CurrencyPer] DEFAULT ((1)),
+[IsRECOVERED] [bit] NULL CONSTRAINT [DF_LEDGERVALUES_IsRECOVERED] DEFAULT ((0)),
+[AssetClass] [ntext] COLLATE SQL_Latin1_General_CP1_CI_AS NULL
+) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
+GO
+ALTER TABLE [dbo].[LEDGERVALUES] ADD CONSTRAINT [PK_LEDGERVALUES] PRIMARY KEY CLUSTERED  ([VALUEID]) ON [PRIMARY]
+GO
+CREATE NONCLUSTERED INDEX [_dta_index_LEDGERVALUES_8_896722247__K2_K4] ON [dbo].[LEDGERVALUES] ([DiaryID], [TotalValue]) ON [PRIMARY]
+GO
+CREATE NONCLUSTERED INDEX [_dta_index_LEDGERVALUES_8_896722247__K4_K2] ON [dbo].[LEDGERVALUES] ([TotalValue], [DiaryID]) ON [PRIMARY]
+GO

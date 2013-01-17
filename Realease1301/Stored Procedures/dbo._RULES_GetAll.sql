@@ -1,0 +1,11 @@
+SET QUOTED_IDENTIFIER ON
+GO
+SET ANSI_NULLS ON
+GO
+
+
+-- Gets all records from the 'RULES' table.
+CREATE PROCEDURE [dbo].[_RULES_GetAll]
+AS
+	SELECT * FROM [dbo].[RULES]
+GO

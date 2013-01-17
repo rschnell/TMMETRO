@@ -1,0 +1,11 @@
+SET QUOTED_IDENTIFIER ON
+GO
+SET ANSI_NULLS ON
+GO
+
+
+-- Deletes all records from the 'CATEGORIES' table.
+CREATE PROCEDURE [dbo].[_CATEGORIES_DeleteAll]
+AS
+	DELETE FROM [dbo].[CATEGORIES]
+GO

@@ -1,0 +1,29 @@
+SET QUOTED_IDENTIFIER ON
+GO
+SET ANSI_NULLS ON
+GO
+
+
+-- Inserts a new record into the 'REFERENCES' table.
+CREATE PROCEDURE [dbo].[_REFERENCES_Insert]
+	@REFERENCE nvarchar(50),
+	@REFTYPE int,
+	@PERSON int,
+	@CASEID int
+AS
+	INSERT INTO [dbo].[REFERENCES]
+	(
+		[REFERENCE],
+		[REFTYPE],
+		[PERSON],
+		[CASEID]
+	)
+	VALUES
+	(
+		@REFERENCE,
+		@REFTYPE,
+		@PERSON,
+		@CASEID
+	)
+	SELECT @@IDENTITY
+GO

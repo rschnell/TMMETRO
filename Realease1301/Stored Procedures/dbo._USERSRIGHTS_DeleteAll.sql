@@ -1,0 +1,11 @@
+SET QUOTED_IDENTIFIER ON
+GO
+SET ANSI_NULLS ON
+GO
+
+
+-- Deletes all records from the 'USERSRIGHTS' table.
+CREATE PROCEDURE [dbo].[_USERSRIGHTS_DeleteAll]
+AS
+	DELETE FROM [dbo].[USERSRIGHTS]
+GO

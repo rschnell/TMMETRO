@@ -1,0 +1,11 @@
+SET QUOTED_IDENTIFIER ON
+GO
+SET ANSI_NULLS ON
+GO
+
+
+-- Deletes all records from the 'CASESXTAGS' table.
+CREATE PROCEDURE [dbo].[_CASESXTAGS_DeleteAll]
+AS
+	DELETE FROM [dbo].[CASESXTAGS]
+GO

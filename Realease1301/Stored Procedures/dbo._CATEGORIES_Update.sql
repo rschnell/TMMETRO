@@ -1,0 +1,68 @@
+SET QUOTED_IDENTIFIER ON
+GO
+SET ANSI_NULLS ON
+GO
+
+
+-- Updates a record in the 'CATEGORIES' table.
+CREATE PROCEDURE [dbo].[_CATEGORIES_Update]
+	-- The rest of writeable parameters
+	@CATEGORYID int,
+	@TEMPLATEID int,
+	@CATNAME nchar(20),
+	@DISPLAYNAME nvarchar(50),
+	@CATDESC nvarchar(max),
+	@CATOF nchar(20),
+	@CATOFFIELDNAME nchar(200),
+	@ATTNO int,
+	@ATTNAME1 nvarchar(50),
+	@ATTNAME2 nvarchar(50),
+	@ATTNAME3 nvarchar(50),
+	@ATTNAME4 nvarchar(50),
+	@ATTNAME5 nvarchar(50),
+	@ATTNAME6 nvarchar(50),
+	@ATTNAMETAG nvarchar(50),
+	@ATTNAMETEXT nvarchar(50),
+	@ATTNAMEID nvarchar(50),
+	@ACTIVE bit,
+	@ATTRELNO int,
+	@ATTRELID int,
+	@RENDERTOLEVEL int,
+	@LEAFATLEVEL int,
+	@LANGUAGE nvarchar(50),
+	@TERMS nvarchar(50),
+	@ISGLOBAL bit,
+	@ISADMIN bit,
+	-- Primary key parameters
+	@ID int
+AS
+	UPDATE [dbo].[CATEGORIES] SET
+		[CATEGORYID] = @CATEGORYID,
+		[TEMPLATEID] = @TEMPLATEID,
+		[CATNAME] = @CATNAME,
+		[DISPLAYNAME] = @DISPLAYNAME,
+		[CATDESC] = @CATDESC,
+		[CATOF] = @CATOF,
+		[CATOFFIELDNAME] = @CATOFFIELDNAME,
+		[ATTNO] = @ATTNO,
+		[ATTNAME1] = @ATTNAME1,
+		[ATTNAME2] = @ATTNAME2,
+		[ATTNAME3] = @ATTNAME3,
+		[ATTNAME4] = @ATTNAME4,
+		[ATTNAME5] = @ATTNAME5,
+		[ATTNAME6] = @ATTNAME6,
+		[ATTNAMETAG] = @ATTNAMETAG,
+		[ATTNAMETEXT] = @ATTNAMETEXT,
+		[ATTNAMEID] = @ATTNAMEID,
+		[ACTIVE] = @ACTIVE,
+		[ATTRELNO] = @ATTRELNO,
+		[ATTRELID] = @ATTRELID,
+		[RENDERTOLEVEL] = @RENDERTOLEVEL,
+		[LEAFATLEVEL] = @LEAFATLEVEL,
+		[LANGUAGE] = @LANGUAGE,
+		[TERMS] = @TERMS,
+		[ISGLOBAL] = @ISGLOBAL,
+		[ISADMIN] = @ISADMIN
+	WHERE
+		[ID] = @ID
+GO

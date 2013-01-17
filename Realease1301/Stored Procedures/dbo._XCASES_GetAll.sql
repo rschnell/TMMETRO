@@ -1,0 +1,10 @@
+SET QUOTED_IDENTIFIER ON
+GO
+SET ANSI_NULLS ON
+GO
+
+-- Gets all records from the 'XCASES' table.
+CREATE PROCEDURE [dbo].[_XCASES_GetAll]
+AS
+	SELECT * FROM [dbo].[XCASES]
+GO

@@ -1,0 +1,38 @@
+SET QUOTED_IDENTIFIER ON
+GO
+SET ANSI_NULLS ON
+GO
+
+
+-- Inserts a new record into the 'LISTHEADERS' table.
+CREATE PROCEDURE [dbo].[_LISTHEADERS_Insert]
+	@TITLE nchar(100),
+	@DESCRIPTION nvarchar(70),
+	@CASEID int,
+	@ACTIONID int,
+	@SHEETNO int,
+	@SHEETNAME nchar(6),
+	@SHEETTYPE int
+AS
+	INSERT INTO [dbo].[LISTHEADERS]
+	(
+		[TITLE],
+		[DESCRIPTION],
+		[CASEID],
+		[ACTIONID],
+		[SHEETNO],
+		[SHEETNAME],
+		[SHEETTYPE]
+	)
+	VALUES
+	(
+		@TITLE,
+		@DESCRIPTION,
+		@CASEID,
+		@ACTIONID,
+		@SHEETNO,
+		@SHEETNAME,
+		@SHEETTYPE
+	)
+	SELECT @@IDENTITY
+GO

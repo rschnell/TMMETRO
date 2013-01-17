@@ -1,0 +1,59 @@
+SET QUOTED_IDENTIFIER ON
+GO
+SET ANSI_NULLS ON
+GO
+
+
+-- Inserts a new record into the 'NOTES' table.
+CREATE PROCEDURE [dbo].[_NOTES_Insert]
+	@TITLE nvarchar(70),
+	@NOTESHTM nvarchar(max),
+	@VERSION nvarchar(50),
+	@LASTUPDATED datetime,
+	@UPDATEDBY int,
+	@PAGENO int,
+	@CASEID int,
+	@ACTIONID int,
+	@NOTETYPE int,
+	@CREATEDBY int,
+	@CREATEDDATE datetime,
+	@PERSONID int,
+	@LISTID int,
+	@ACTIVE bit
+AS
+	INSERT INTO [dbo].[NOTES]
+	(
+		[TITLE],
+		[NOTESHTM],
+		[VERSION],
+		[LASTUPDATED],
+		[UPDATEDBY],
+		[PAGENO],
+		[CASEID],
+		[ACTIONID],
+		[NOTETYPE],
+		[CREATEDBY],
+		[CREATEDDATE],
+		[PERSONID],
+		[LISTID],
+		[ACTIVE]
+	)
+	VALUES
+	(
+		@TITLE,
+		@NOTESHTM,
+		@VERSION,
+		@LASTUPDATED,
+		@UPDATEDBY,
+		@PAGENO,
+		@CASEID,
+		@ACTIONID,
+		@NOTETYPE,
+		@CREATEDBY,
+		@CREATEDDATE,
+		@PERSONID,
+		@LISTID,
+		@ACTIVE
+	)
+	SELECT @@IDENTITY
+GO

@@ -1,0 +1,11 @@
+SET QUOTED_IDENTIFIER ON
+GO
+SET ANSI_NULLS ON
+GO
+
+
+-- Gets all records from the 'SUBSXUSERS' table.
+CREATE PROCEDURE [dbo].[_SUBSXUSERS_GetAll]
+AS
+	SELECT * FROM [dbo].[SUBSXUSERS]
+GO

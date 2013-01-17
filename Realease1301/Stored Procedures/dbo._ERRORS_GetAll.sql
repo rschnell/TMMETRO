@@ -1,0 +1,11 @@
+SET QUOTED_IDENTIFIER ON
+GO
+SET ANSI_NULLS ON
+GO
+
+
+-- Gets all records from the 'ERRORS' table.
+CREATE PROCEDURE [dbo].[_ERRORS_GetAll]
+AS
+	SELECT * FROM [dbo].[ERRORS]
+GO

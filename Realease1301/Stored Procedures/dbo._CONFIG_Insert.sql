@@ -1,0 +1,23 @@
+SET QUOTED_IDENTIFIER ON
+GO
+SET ANSI_NULLS ON
+GO
+
+
+-- Inserts a new record into the 'CONFIG' table.
+CREATE PROCEDURE [dbo].[_CONFIG_Insert]
+	@CONFIGNAME nvarchar(50),
+	@CONFIGVALUE nvarchar(max)
+AS
+	INSERT INTO [dbo].[CONFIG]
+	(
+		[CONFIGNAME],
+		[CONFIGVALUE]
+	)
+	VALUES
+	(
+		@CONFIGNAME,
+		@CONFIGVALUE
+	)
+	SELECT @@IDENTITY
+GO

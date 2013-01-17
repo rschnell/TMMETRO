@@ -1,0 +1,30 @@
+SET QUOTED_IDENTIFIER ON
+GO
+SET ANSI_NULLS ON
+GO
+
+
+-- Updates a record in the 'USERSPROFILES' table.
+CREATE PROCEDURE [dbo].[_USERSPROFILES_Update]
+	-- The rest of writeable parameters
+	@USERID int,
+	@SUBSCRIPTIONID int,
+	@ACTIVE bit,
+	@DATESTART date,
+	@DATEND date,
+	@FILTER varchar(max),
+	@INVISIBLE bit,
+	-- Primary key parameters
+	@PROFILEID int
+AS
+	UPDATE [dbo].[USERSPROFILES] SET
+		[USERID] = @USERID,
+		[SUBSCRIPTIONID] = @SUBSCRIPTIONID,
+		[ACTIVE] = @ACTIVE,
+		[DATESTART] = @DATESTART,
+		[DATEND] = @DATEND,
+		[FILTER] = @FILTER,
+		[INVISIBLE] = @INVISIBLE
+	WHERE
+		[PROFILEID] = @PROFILEID
+GO

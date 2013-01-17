@@ -1,0 +1,11 @@
+SET QUOTED_IDENTIFIER ON
+GO
+SET ANSI_NULLS ON
+GO
+
+
+-- Gets all records from the 'DATES_DAYS' table.
+CREATE PROCEDURE [dbo].[_DATES_DAYS_GetAll]
+AS
+	SELECT * FROM [dbo].[DATES_DAYS]
+GO

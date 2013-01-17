@@ -1,0 +1,17 @@
+SET QUOTED_IDENTIFIER ON
+GO
+SET ANSI_NULLS ON
+GO
+
+
+
+CREATE VIEW [dbo].[ALLUSERS]
+AS
+SELECT     dbo.USERS.*, dbo.USERSEXTENDED.IsISManager, dbo.USERSEXTENDED.IsTMManager, dbo.USERSEXTENDED.IsTMAdmin, dbo.USERSEXTENDED.AgencyID, 
+                      dbo.USERSEXTENDED.IsDetective
+FROM         dbo.USERS LEFT OUTER JOIN
+                      dbo.USERSEXTENDED ON dbo.USERS.UserId = dbo.USERSEXTENDED.USERID
+
+
+
+GO

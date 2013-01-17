@@ -1,0 +1,11 @@
+SET QUOTED_IDENTIFIER ON
+GO
+SET ANSI_NULLS ON
+GO
+
+
+-- Gets all records from the 'CATEGORIES' table.
+CREATE PROCEDURE [dbo].[_CATEGORIES_GetAll]
+AS
+	SELECT * FROM [dbo].[CATEGORIES]
+GO

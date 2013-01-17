@@ -1,0 +1,21 @@
+SET QUOTED_IDENTIFIER ON
+GO
+SET ANSI_NULLS ON
+GO
+
+-- Updates a record in the 'CUSTOMERSXFACILITYUSER' table.
+CREATE PROCEDURE [dbo].[_CUSTOMERSXFACILITYUSER_Update]
+	-- The rest of writeable parameters
+	@TREEID int,
+	@CUSTOMERID int,
+	@USERID int,
+	-- Primary key parameters
+	@ID int
+AS
+	UPDATE [dbo].[CUSTOMERSXFACILITYUSER] SET
+		[TREEID] = @TREEID,
+		[CUSTOMERID] = @CUSTOMERID,
+		[USERID] = @USERID
+	WHERE
+		[ID] = @ID
+GO

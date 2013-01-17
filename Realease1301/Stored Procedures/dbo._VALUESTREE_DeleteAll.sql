@@ -1,0 +1,10 @@
+SET QUOTED_IDENTIFIER ON
+GO
+SET ANSI_NULLS ON
+GO
+
+-- Deletes all records from the 'VALUESTREE' table.
+CREATE PROCEDURE [dbo].[_VALUESTREE_DeleteAll]
+AS
+	DELETE FROM [dbo].[VALUESTREE]
+GO

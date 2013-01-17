@@ -1,0 +1,11 @@
+SET QUOTED_IDENTIFIER ON
+GO
+SET ANSI_NULLS ON
+GO
+
+
+-- Deletes all records from the 'RULES_OLD' table.
+CREATE PROCEDURE [dbo].[_RULES_OLD_DeleteAll]
+AS
+	DELETE FROM [dbo].[RULES_OLD]
+GO

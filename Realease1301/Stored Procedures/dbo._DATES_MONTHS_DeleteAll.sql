@@ -1,0 +1,11 @@
+SET QUOTED_IDENTIFIER ON
+GO
+SET ANSI_NULLS ON
+GO
+
+
+-- Deletes all records from the 'DATES_MONTHS' table.
+CREATE PROCEDURE [dbo].[_DATES_MONTHS_DeleteAll]
+AS
+	DELETE FROM [dbo].[DATES_MONTHS]
+GO
